@@ -10,7 +10,7 @@ A basic React and Redux movies app. It displays base on categories selected by t
 ![Screenshot]()
 
 # Live Demo
-[Live Demo Link]() 
+[Live Demo Link](https://kelimovies.herokuapp.com/) 
 
 
 # Built With
@@ -30,7 +30,7 @@ A basic React and Redux movies app. It displays base on categories selected by t
 ### Usage
 - Clone the project 
 ```
-git clone `http://www.omdbapi.com/?i=tt3896198&apikey=c04780bf`
+git clone https://github.com/kelibst/react_movies.git
 ```
 - Run `npm install` to install the local dependencies
 - Run `npm start` to launch local development server
