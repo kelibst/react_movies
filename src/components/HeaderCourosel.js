@@ -1,6 +1,7 @@
 import React from 'react'
 import './layouts/HeaderCourosel.scss'
 import lionKing from './assets/lionking.jpeg'
+import HeaderTitle from './layouts/HeaderTitle'
 
 const HeaderCourosel = () => {
     return (
@@ -29,6 +30,7 @@ const HeaderCourosel = () => {
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="sr-only">Next</span>
         </a>
+        <HeaderTitle />
         </div>
     )
 }
