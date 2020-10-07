@@ -1,4 +1,5 @@
 import React from "react";
+import Icofont from "react-icofont";
 
 const HeaderTitle = () => {
   return (
@@ -14,9 +15,10 @@ const HeaderTitle = () => {
           voluptates saepe sunt?
         </p>
       </div>
-      <h1 className="text-white header-title-text font-weight-bolder">Lion King</h1>
+      <h1 className="text-white header-title-text font-weight-bolder">The Lion King</h1>
 
-      <div className="btn btn-danger">trailer</div>
+      <div className="btn btn-danger px-4">trailer <Icofont icon="play" /></div>
+      <div className="btn btn-outline-secondary px-4 ml-4"><Icofont icon="share" /></div>
     </div> 
     </div>
   );
