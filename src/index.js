@@ -9,8 +9,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
+import { createStore, applyMiddleware } from 'redux';
 const store = createStore(rootReducer)
 
 ReactDOM.render(
