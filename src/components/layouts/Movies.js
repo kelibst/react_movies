@@ -4,20 +4,46 @@ import { compose } from 'redux'
 import { fetchMovies, getData } from '../actions/fectchActions'
 import Movie from './Movie'
 import './Movies.scss'
+import Axios from "axios";
+const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
 
 class Movies extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            movies: []
+        }
     }
     
-    componentDidUpdate(){
-       const { fetchMovies } = this.props
-        console.log(this.props)
-        fetchMovies()
+    
+     getData = () => {
+        let result = [];
+         Axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`)
+            .then(res => {
+                console.log('got here')
+                console.log(res.data.results)
+                this.setState({
+                    movies: res.data.results
+                })
+                result =  res.data.results
+            }).catch(err => {
+                console.log(err)
+                result =  err
+            })
+            
+            return this.state
+    }
+    
+
+    componentDidMount(){
+         this.getData()
     }
     render(){
         const { movies } = this.props
         console.log(this.props)
+        const data = this.state.movies
+        fetchMovies(data)
+        console.log(data)
         return (
         <section className="container-fluid">
             <div className="movies-container my-4 py-3">
@@ -35,6 +61,7 @@ class Movies extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         movies: state.movie.movies
     }
@@ -42,6 +69,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   
-    fetchMovies: () => dispatch(fetchMovies())
+    fetchMovies: (data) => dispatch({type: 'GET_MOVIES', data})
 })
-export default compose(connect(mapStateToProps, mapDispatchToProps))(Movies)
+export default connect(mapStateToProps, mapDispatchToProps)(Movies)

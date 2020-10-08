@@ -1,28 +1,16 @@
-import Axios from "axios";
-import { initData } from "../initData";
+import { GET_MOVIES } from "../components/actions/actionTypes";
+
 const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
 
 const moviesReducer = (state ={movies: []}, action) => {
+    console.log(action)
+
     switch (action.type){
         case "GET_MOVIES":
-            console.log('began action', action.payload)
-            const getData = () => {
-                let result;
-                 Axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`)
-                    .then(res => {
-                        console.log('got here')
-                        result =  res.data.results
-                    }).catch(err => {
-                        console.log(err)
-                        result =  err
-                    })
-                    return result
-            }
-            const data = getData()
-            console.log('new data',data)
+            console.log('payload', action.payload)
             return {
                 ...state, 
-                movies: data
+                movies: action.payload
             }
         case 'FETCH_MOVIES':
             return {
@@ -30,6 +18,7 @@ const moviesReducer = (state ={movies: []}, action) => {
                 movies: action.payload
             }
         default:
+            console.log('passed')
             return state
     } 
    
