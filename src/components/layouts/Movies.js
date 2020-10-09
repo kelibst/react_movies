@@ -68,7 +68,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  
     fetchMovies: (data) => dispatch({type: 'GET_MOVIES', data})
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Movies)
