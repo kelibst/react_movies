@@ -34,7 +34,7 @@ git clone https://github.com/kelibst/react_movies.git
 ```
 - Run `npm install` to install the local dependencies
 - Run `npm start` to launch local development server
-- The project should launch in your default browser
+
 
 
 ## Authors
